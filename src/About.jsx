@@ -93,11 +93,10 @@ Yoga Co-Ordinator            </p>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-left">
           {[
             "🧘 All Asanas Practice Sessions",
-            "🌱 Stress Relief & Meditation Workshops",
+            "🌱 Stress Relief & Meditation ",
             "🎉 Cultural & Wellness Events",
-            "☀️ Outdoor Yoga Retreats",
             "📚 Student Wellness Programs",
-            "🤝 Community Service Through Yoga",
+            "🤝 Health Service Through Yoga",
           ].map((feature, index) => (
             <li
               key={index}
