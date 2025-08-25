@@ -22,11 +22,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 p-4 md:p-6 transition-shadow duration-300 ${
-        isScrolled ? 'shadow-xl' : ''
-      } bg-[#b8860b] text-white`}
+      className={`fixed top-0 left-0 w-full z-50 transition-shadow duration-300 
+        ${isScrolled ? 'shadow-xl bg-[#b8860b]' : 'bg-[#b8860b]/95'} text-white`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-8 py-3">
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <img
@@ -45,9 +44,20 @@ export default function Header() {
             <a
               key={link.to}
               href={link.to}
-              className="transition hover:text-[#f5deb3]"
+              className="relative px-2 py-1 font-medium text-white transition duration-300 
+                         hover:text-yellow-300 group"
             >
               {link.name}
+              {/* Animated underline */}
+              <span
+                className="absolute left-0 bottom-0 w-0 h-0.5 bg-yellow-300 
+                           transition-all duration-300 group-hover:w-full"
+              ></span>
+              {/* Glow effect */}
+              <span
+                className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 
+                           transition duration-500 blur-lg bg-yellow-500/30"
+              ></span>
             </a>
           ))}
         </nav>
@@ -79,15 +89,24 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden mt-4 space-y-3 bg-[#a0522d] p-4 rounded-lg shadow-lg animate-fadeIn">
+        <div className="md:hidden mt-2 space-y-3 bg-[#a0522d] px-4 py-4 rounded-b-lg shadow-lg animate-fadeIn">
           {navLinks.map((link) => (
             <a
               key={link.to}
               href={link.to}
-              className="block transition hover:text-[#f5deb3]"
+              className="block relative px-2 py-1 font-medium text-white transition duration-300 
+                         hover:text-yellow-300 group"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
+              <span
+                className="absolute left-0 bottom-0 w-0 h-0.5 bg-yellow-300 
+                           transition-all duration-300 group-hover:w-full"
+              ></span>
+              <span
+                className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 
+                           transition duration-500 blur-lg bg-yellow-500/30"
+              ></span>
             </a>
           ))}
         </div>
